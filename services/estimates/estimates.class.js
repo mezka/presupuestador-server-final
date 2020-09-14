@@ -6,24 +6,24 @@ exports.Estimates = class Estimates extends Service {
     this.app = app;
   }
 
-  create (data, params) {
+  create(data, params) {
 
     const { estimateitems, ...estimateData } = data;
 
     const createEstimatePromise = super.create(estimateData, params);
 
-    createEstimatePromise.then(result => {
-
-      console.log('createEstimatePromise result');
-      console.log(result);
-
-      this.app.service('estimateitems').create({discount: 10, price: 1200, estimateid: 1, productid: 1}, params)
-      .then(result => {
-        console.log('estimateItemsResult');
-        console.log(result)
+    createEstimatePromise.then(estimate => {
+      const estimateItemsPromises = estimateitems.map(item => {
+        return this.app.service('estimateitems').create({
+          discount: item.discount ? item.discount : 0,
+          price: item.price,
+          estimateid: estimate.id,
+          productid: item.productid
+        }, params)
       });
-    })
-    .catch(error => console.log(error));
+
+      Promise.all(estimateItemsPromises);
+    });
 
     return createEstimatePromise;
   }
