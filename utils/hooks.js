@@ -1,10 +1,15 @@
 module.exports = {
-  createEstimateItems: () => {
+  setEagerLoadingForAllFields: () => {
     return (context) => {
       
-      if(context.data.clientid){
-        console.log('should do somtehing')
-      }
+      context.params.sequelize = {
+        include: [{
+          all: true,
+        }],
+        nest: true
+      };
+      
+      return context;
     }
   }
 }

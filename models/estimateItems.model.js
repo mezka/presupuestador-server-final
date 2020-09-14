@@ -3,7 +3,7 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const estimateItems = sequelizeClient.define('estimateitems', {
+  const estimateitems = sequelizeClient.define('estimateitems', {
     discount: {
       type: DataTypes.INTEGER
     },
@@ -19,10 +19,10 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  estimateItems.associate = function (models) {
-    estimateItems.belongsTo(models.estimates, { onDelete: 'CASCADE', foreignKey: 'estimateid'});
-    estimateItems.belongsTo(models.products, { onDelete: 'NO ACTION', foreignKey: 'productid'});
+  estimateitems.associate = function (models) {
+    estimateitems.belongsTo(models.estimates, { onDelete: 'CASCADE', foreignKey: 'estimateid'});
+    estimateitems.belongsTo(models.products, { onDelete: 'NO ACTION', foreignKey: 'productid'});
   };
 
-  return estimateItems;
+  return estimateitems;
 };

@@ -1,11 +1,11 @@
-const { createEstimateItems } = require('../../utils/hooks');
+const { setEagerLoadingForAllFields } = require('../../utils/hooks');
 
 module.exports = {
   before: {
     all: [],
-    find: [],
+    find: [setEagerLoadingForAllFields()],
     get: [],
-    create: [createEstimateItems()],
+    create: [],
     update: [],
     patch: [],
     remove: []
