@@ -1,11 +1,13 @@
 const { setEagerLoadingForAllFields } = require('../../utils/hooks');
+const { authenticate } = require('@feathersjs/authentication').hooks;
+
 
 module.exports = {
   before: {
     all: [],
     find: [setEagerLoadingForAllFields()],
     get: [],
-    create: [],
+    create: [authenticate('jwt')],
     update: [],
     patch: [],
     remove: []

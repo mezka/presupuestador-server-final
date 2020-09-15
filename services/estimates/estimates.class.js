@@ -10,7 +10,7 @@ exports.Estimates = class Estimates extends Service {
 
     const { estimateitems, ...estimateData } = data;
 
-    const createEstimatePromise = super.create(estimateData, params);
+    const createEstimatePromise = super.create({...estimateData, userid: params.user.id}, params);
 
     createEstimatePromise.then(estimate => {
       const estimateItemsPromises = estimateitems.map(item => {

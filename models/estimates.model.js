@@ -21,6 +21,7 @@ module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
   estimates.associate = function (models) {
     estimates.belongsTo(models.clients, {onDelete: 'NO ACTION', foreignKey: 'clientid'});
+    estimates.belongsTo(models.users, {onDelete: 'NO ACTION', foreignKey: 'userid'});
     estimates.hasMany(models.estimateitems, {onDelete: 'CASCADE', foreignKey: 'estimateid'});
   };
 
