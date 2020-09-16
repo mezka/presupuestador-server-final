@@ -3,10 +3,10 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('clients', [{
-      name: 'Emiliano Mesquita Drago',
-      phonenumber0: '1540766551',
-      address0: 'Azcuenaga 347',
-      email0: 'emiliano_mesquita@hotmail.com',
+      name: 'Mariano',
+      phonenumber0: '1156341256',
+      address0: 'Azcuenaga 112',
+      email0: 'mariano_galindez@hotmail.com',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
