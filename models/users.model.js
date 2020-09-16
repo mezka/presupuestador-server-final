@@ -12,12 +12,15 @@ module.exports = function (app) {
       allowNull: false,
       unique: true
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false
     },
-  
-  
   }, {
     hooks: {
       beforeCount(options) {
