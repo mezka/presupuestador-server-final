@@ -1,5 +1,7 @@
 const { setEagerLoadingForAllFields } = require('../../utils/hooks');
 const { authenticate } = require('@feathersjs/authentication').hooks;
+const { protect } = require('@feathersjs/authentication-local').hooks;
+
 
 
 module.exports = {
@@ -15,7 +17,7 @@ module.exports = {
 
   after: {
     all: [],
-    find: [],
+    find: [protect(['clientid']), protect(['userid'])],
     get: [],
     create: [],
     update: [],
