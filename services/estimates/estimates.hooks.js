@@ -1,14 +1,11 @@
-const { setEagerLoadingForAllFields } = require('../../utils/hooks');
+const { setEagerLoadingForEstimateService } = require('../../utils/hooks');
 const { authenticate } = require('@feathersjs/authentication').hooks;
-const { protect } = require('@feathersjs/authentication-local').hooks;
-
-
 
 module.exports = {
   before: {
     all: [],
-    find: [setEagerLoadingForAllFields()],
-    get: [],
+    find: [setEagerLoadingForEstimateService()],
+    get: [setEagerLoadingForEstimateService()],
     create: [authenticate('jwt')],
     update: [],
     patch: [],
@@ -17,7 +14,7 @@ module.exports = {
 
   after: {
     all: [],
-    find: [protect(['clientid']), protect(['userid'])],
+    find: [],
     get: [],
     create: [],
     update: [],
