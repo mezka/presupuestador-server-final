@@ -1,24 +1,14 @@
-module.exports = {
-  setEagerLoadingForAllFields: () => {
-    return (context) => {
-      context.params.sequelize = {
-        include: [
-          {
-            all: true,
-            attributes: {
-              exclude: ['password']
-            }
-          },
-        ],
-        nest: true,
-        raw: false,
-      };
+const { createNewEstimateWithTemplateProperties } = require('./formatting');
 
-      return context;
-    };
-  },
-  setEagerLoadingForEstimateService: () => {
+module.exports = {
+  setEagerLoadingForEstimateService(){
     return (context) => {
+  
+      const { export: exportExtension, ...query} = context.params.query;
+  
+      context.params.query = query;
+      context.params.export = exportExtension;
+  
       context.params.sequelize = {
         include: [
           {
@@ -52,6 +42,15 @@ module.exports = {
           exclude: ['userid', 'clientid']
         }
       };
+      return context;
+    };
+  },
+  calculateValuesForEstimateTemplate(){
+    return (context) => {
+
+      context.result = createNewEstimateWithTemplateProperties(context.result);
+
+      return context;
     };
   }
 };

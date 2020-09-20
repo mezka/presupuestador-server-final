@@ -5,10 +5,17 @@ module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const estimateitems = sequelizeClient.define('estimateitems', {
     discount: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      allowNull: false
     },
-    price: {
-      type: DataTypes.INTEGER
+    unitprice: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
     hooks: {

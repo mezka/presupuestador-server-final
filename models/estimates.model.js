@@ -6,10 +6,6 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const estimates = sequelizeClient.define('estimates', {
-    taxpercent: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
   }, {
     hooks: {
       beforeCount(options) {

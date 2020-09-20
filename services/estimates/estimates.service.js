@@ -2,6 +2,7 @@
 const { Estimates } = require('./estimates.class');
 const createModel = require('../../models/estimates.model');
 const hooks = require('./estimates.hooks');
+const exportEstimateAsFile = require('../../middleware/exportEstimateAsFile');
 
 module.exports = function (app) {
   const options = {
@@ -10,7 +11,7 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use('/estimates', new Estimates(options, app));
+  app.use('/estimates', new Estimates(options, app), exportEstimateAsFile);
 
   // Get our initialized service so that we can register hooks
   const service = app.service('estimates');

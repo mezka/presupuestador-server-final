@@ -6,14 +6,16 @@ module.exports = {
       {
         estimateid: 1,
         productid: 1,
-        price: 200000,
+        quantity: 1,
+        unitprice: 200000,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         estimateid: 1,
         productid: 2,
-        price: 400000,
+        quantity: 1,
+        unitprice: 400000,
         createdAt: new Date(),
         updatedAt: new Date()
       },

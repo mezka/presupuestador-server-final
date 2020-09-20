@@ -48,6 +48,20 @@ module.exports = function (app) {
     discount: {
       type: DataTypes.INTEGER,
       allowNull: true
+    },
+    taxcategory: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'CONSUMIDOR FINAL'
+    },
+    taxpercent: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 21
+    },
+    cuil: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     hooks: {

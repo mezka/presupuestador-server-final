@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Presupuesto</title>
+    <style>
+    p {
+        margin: 0;
+    }
+    .float-right {
+        float: right;
+        white-space: nowrap;
+    }
+
+    #header-container{
+        width:100%;
+        text-align: left;
+    }
+
+    .mesquita-logo {
+    height: inherit;
+    width: auto;
+    }
+
+    .letter-box {
+    position: relative;
+    height: 100%;
+    width: 10%;
+    padding: 60px;
+    padding-left: 30px;
+    border: 3px solid black;
+    }
+
+    .letter {
+    font-size: 30px;
+    }
+
+    .presupuesto-data-box {
+        height: inherit;
+        box-sizing: border-box;
+        border: 3px solid black;
+        padding: 5px;
+        overflow: auto;
+    }
+
+    .empresa-data-box {
+        text-align: right;
+        margin-top: 5px;
+    }
+
+    .cross-box {
+    width: 10%;
+    height: inherit;
+    }
+
+    .graybox-large {
+    justify-content: space-between;
+    margin: 3px 0 0 0;
+    width: 100%;
+    background-color: #d7d7d7;
+    border: 1px solid black;
+    }
+
+    .data-graybox-large {
+    width: 100%;
+    }
+
+    .footer-container {
+    justify-content: space-between;
+    }
+
+    .data-box-container {
+    justify-content: space-between;
+    border-bottom: 3px solid black;
+    }
+
+    .data-box {
+    border: 1px solid black;
+    width: 20%;
+    }
+
+    /* TABLE HEADER STYLING */
+
+    .graybox-header-table {
+    margin: 3px 0 0 0;
+    background-color: #d7d7d7;
+    border: 1px solid black;
+    }
+
+    /* TABLE CELL STYLING */
+
+    .presupuesto-cell {
+    text-align: right;
+    }
+
+    .products-table,.account-table, .amount-table, .graybox-header-table,tr {
+    width: 100%;
+    }
+
+    .products-table{
+        height: 730px;
+    }
+
+    .presupuesto-row {
+        height: 20px;
+    }
+
+    .productquantity-cell {
+    width: 5%;
+    }
+
+    .productprice-cell,.productestimate-cell,.productdiscount-cell {
+    width: 10%;
+    }
+
+    .productname-cell {
+    width: 65%;
+    }
+
+    .account-cell {
+    box-sizing: border-box;
+    padding-left: 80px;
+    }
+
+    .venta-data-flexbox {
+    background-color: #d7d7d7;
+    border: 1px solid black;
+    }
+
+    .table-header {
+    border-right: 1px solid black;
+    }
+    
+    .amount-cell{
+    border: 2px solid black;
+    }
+    </style>
+</head>
+
+<body>
+    <header id="pageHeader" class="header-flexbox">
+        <table id="header-container">
+            <tr>
+                <th>
+                    <img class="mesquita-logo" src="https://svgshare.com/i/5XN.svg">
+                    <div class="address-box">
+                        <p>Alsina 2501 - (1090) Capital Federal</p>
+                        <p>Tel: 4954-2224 / 4115-0800</p>
+                        <p>Tel: 4951-9812 - Servicio tecnico 24hs</p>
+                        <p>IVA: Responsable Inscripto</p>
+                    </div>
+                </th>
+                <th>
+                    <div class="letter-box">
+                        <p class="letter">"X"</p>
+                    </div>
+                </th>
+                <th>
+                    <div class="presupuesto-data-box">
+                        <div class="float-right">
+                            <p> COTIZACI&Oacute;N N&deg;: {{id}}</p>
+                            <p>Fecha: {{createdAt}}</p>
+                        </div>
+                    </div>
+                    <div class="empresa-data-box">
+                        <p>CUIT N&deg;: 3070987582-1</p>
+                        <p>Ing. Brutos: 901-4224746-5</p>
+                        <p>Inicio Act.: 01/11/2006</p>
+                        <p>Mail: ventas@mesquita.com.ar</p>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <table class="account-table">
+                    <tr class="graybox-header-table">
+                        <th>Cliente:</th>
+                        <th>Cuenta N&deg;:</th>
+                        <th>Vendedor:</th>
+                    </tr>
+                    <tr>
+                        <td class="account-cell">{{client.name}}</td>
+                        <td class="account-cell">{{client.id}}</td>
+                        <td class="account-cell">{{user.name}}</td>
+                    </tr>
+                    <tr class="graybox-header-table">
+                        <th>Categor&iacute;a fiscal:</th>
+                        <th>CUIT / CUIL N&deg;:</th>
+                        <th>Valido hasta:</th>
+                    </tr>
+                    <tr>
+                        <td>{{client.taxcategory}}</td>
+                        <td>{{client.cuil | default("NO ESPECIFICA", true)}}</td>
+                        <td>{{presupuesto.presupuestooc}}</td>
+                    </tr>
+                </table>
+            </tr>
+        <table>
+    </header>
+
+
+    <table class="products-table">
+        <tr class="graybox-header-table presupuesto-row">
+            <th class="presupuesto-cell productquantity-cell"><p class="presupuesto-cell-content">Cantidad</p></th>
+            <th class="presupuesto-cell productname-cell"><p class="presupuesto-cell-content">Descripcion</p></th>
+            <th class="presupuesto-cell productdiscount-cell"><p class="presupuesto-cell-content">Descuento</p></th>
+            <th class="presupuesto-cell productprice-cell"><p class="presupuesto-cell-content">Precio</p></th>
+            <th class="presupuesto-cell productestimate-cell"><p class="presupuesto-cell-content">Importe</p></th>
+        </tr>
+        {% for estimateitem in estimateitems %}
+        <tr class="presupuesto-row">
+            <td class="presupuesto-cell productquantity-cell"><p>{{estimateitem.quantity}}</p></td>
+            <td class="presupuesto-cell productname-cell"><p>{{estimateitem.product.modelname}}</p></td>
+            <td class="presupuesto-cell productdiscount-cell"><p>{{estimateitem.discount + '%'}}</p></td>
+            <td class="presupuesto-cell productprice-cell"><p>${{estimateitem.unitpricewithdiscount}}</p></td>
+            <td class="presupuesto-cell productestimate-cell"><p>${{estimateitem.totalitemprice | round(2)}}</p></td>
+        </tr>
+        {% endfor %}
+        <tr class="presupuesto-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="filler-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <div class="data-graybox-large">
+        <p>Son pesos: {{totalaswords}}</p>
+    </div>
+
+    <table class="amount-table">
+        <tr class="graybox-header-table">
+            <th>Subtotal</th>
+            <th>Descuento</th>
+            <th>Tasa</th>
+            <th>Neto Gravado</th>
+            <th>IVA</th>
+            <th>TOTAL</th>
+        </tr>
+        <tr>
+            <td class="amount-cell">{{subtotal}}</td>
+            <td class="amount-cell">{{totaldiscount}}</td>
+            <td class="amount-cell">{{client.taxpercent}}</td>
+            <td class="amount-cell">{{subtotal}}</td>
+            <td class="amount-cell">{{totaltax}}</td>
+            <td class="amount-cell">{{total}}</td>
+        </tr>
+    </table>
+
+    <footer id="pageFooter" class="footer-container">
+        <div class="banco-box">
+            <p>Medio de pago: EQUIPAMIENTOS DE SEGURIDAD S.A.</p>
+            <p>CBU: 1910249655024900127746</p>
+            <p>N&deg; de Cta. Cte. : Banco Credicoop SUC: 249, Plaza Miserere</p>
+        </div>
+        <div class="pago-box">
+            <p>Forma de pago: 50% ACOPIO (CONTADO: Efectivo, transferencia, cheque al d&iacute;a acreditado) - SALDO.</p>
+            <p>Nuestras puertas cortafuego se encuentran homologadas por el INTI. Identificadas cada una con su respectivo n&uacute;mero
+                de serie.</p>
+            <p>Para entregar la mercader&iacute;a la misma deber&aacute; encontrarse acreditada. Las puertas no incluyen instalaci&oacute;n.
+                Validez de la oferta: 10 d&iacute;as.</p>
+            <p>Tiempo de entrega: {{presupuesto.tiempoentrega}} a part&iacute;r de acreditaci&oacute;n del acopio</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

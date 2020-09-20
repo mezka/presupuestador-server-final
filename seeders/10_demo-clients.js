@@ -7,6 +7,7 @@ module.exports = {
       phonenumber0: '1156341256',
       address0: 'Azcuenaga 112',
       email0: 'mariano_galindez@hotmail.com',
+      cuil: '20363971157',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

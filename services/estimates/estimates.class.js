@@ -6,25 +6,25 @@ exports.Estimates = class Estimates extends Service {
     this.app = app;
   }
 
-  create(data, params) {
+  async create(data, params){
+    const { estimateitems: estimateitemsArr, ...estimateData } = data;
 
-    const { estimateitems, ...estimateData } = data;
+    try{
+      var estimate = await super.create({...estimateData, userid: params.user.id}, params);
+    } catch (error){
+      return Promise.reject(error);
+    }
 
-    const createEstimatePromise = super.create({...estimateData, userid: params.user.id}, params);
-
-    createEstimatePromise.then(estimate => {
-      const estimateItemsPromises = estimateitems.map(item => {
-        return this.app.service('estimateitems').create({
-          discount: item.discount ? item.discount : 0,
-          price: item.price,
-          estimateid: estimate.id,
-          productid: item.productid
-        }, params)
-      });
-
-      Promise.all(estimateItemsPromises);
+    const estimateItemsPromises = estimateitemsArr.map(item => {
+      return this.app.service('estimateitems').create({...item, estimateid: estimate.id}, params);
     });
 
-    return createEstimatePromise;
+    try{
+      var estimateitems = await Promise.all(estimateItemsPromises)
+    } catch (error){
+      return Promise.reject(error);
+    }
+
+    return Promise.resolve({...estimate, estimateitems})
   }
 };
