@@ -1,6 +1,6 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 const { removeParameterFromQuery, convertSequelizeResultToJson } = require('../../helpers/hooks');
-const { setEagerLoadingForEstimateService, calculateValuesForEstimateTemplate } = require('./helpers/hooks');
+const { setEagerLoadingForEstimateService, computeValuesForEstimateTemplate } = require('./helpers/hooks');
 
 module.exports = {
   before: {
@@ -16,7 +16,7 @@ module.exports = {
   after: {
     all: [],
     find: [],
-    get: [convertSequelizeResultToJson(), calculateValuesForEstimateTemplate()],
+    get: [convertSequelizeResultToJson(), computeValuesForEstimateTemplate()],
     create: [],
     update: [],
     patch: [],

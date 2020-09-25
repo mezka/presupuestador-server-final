@@ -19,6 +19,446 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        estimateid: 1,
+        productid: 2,
+        quantity: 1,
+        unitprice: 400000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

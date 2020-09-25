@@ -6,6 +6,11 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const estimates = sequelizeClient.define('estimates', {
+    validFor: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 10
+    }
   }, {
     hooks: {
       beforeCount(options) {

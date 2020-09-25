@@ -5,6 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('estimates', [{
       clientid: 1,
       userid: 1,
+      validFor: 10,
       createdAt: new Date(),
       updatedAt: new Date(),
     }]);

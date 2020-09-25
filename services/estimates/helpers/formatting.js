@@ -1,3 +1,5 @@
+const dayjs = require('dayjs');
+
 function numeroALetras(num, currency) {
 
   function Unidades(num) {
@@ -170,7 +172,10 @@ module.exports = {
     const totaltax = estimateSubtotalAndTotalDiscount.subtotal * (estimate.client.taxpercent / 100);
     const total = estimateSubtotalAndTotalDiscount.subtotal + totaltax;
     const totalaswords = numeroALetras(total);
+    const createdAt = dayjs(estimate.createdAt).format('DD/MM/YYYY');
+    const updatedAt = dayjs(estimate.updatedAt).format('DD/MM/YYYY');
+    const validUntil = dayjs(estimate.updatedAt).add(estimate.validFor).format('DD/MM/YYYY');
 
-    return { ...estimate, ...estimateSubtotalAndTotalDiscount, totaltax, total, totalaswords };
+    return { ...estimate, ...estimateSubtotalAndTotalDiscount, totaltax, total, totalaswords, createdAt, updatedAt, validUntil};
   },
 };

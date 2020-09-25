@@ -45,7 +45,7 @@ module.exports = {
       return context;
     };
   },
-  calculateValuesForEstimateTemplate(){
+  computeValuesForEstimateTemplate(){
     return (context) => {
 
       context.result = createNewEstimateWithTemplateProperties(context.result);

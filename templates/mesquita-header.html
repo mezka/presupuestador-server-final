@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    body, p {
+      margin: 0;
+    }
+
+    .intro-header,
+    .account-table {
+      width: 100%;
+    }
+
+    .graybox-table-header {
+      margin: 3px 0 0 0;
+      background-color: #d7d7d7;
+      border: 1px solid black;
+    }
+
+
+    .text-align-right {
+      text-align: right;
+    }
+
+    .text-align-center {
+      text-align: center;
+    }
+
+    /* INTRO-HEADER */
+
+    .intro-header {
+      margin-bottom: 10px;
+    }
+
+    .intro-header>.intro-header-column {
+      display: inline-block;
+      width: 33%;
+    }
+
+    .intro-header>.intro-header-column:nth-child(1) {
+      text-align: center;
+    }
+
+    .intro-header>.intro-header-column:nth-child(2) {
+      height: inherit;
+    }
+
+    .address-box {
+      text-align: left;
+      margin-left: 5%;
+    }
+
+    .letter-box {
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      border: 3px solid black;
+      text-align: center;
+    }
+
+    .letter {
+      font-size: 30px;
+    }
+
+
+    .presupuesto-data-box {
+      display: inline-block;
+      border: 3px solid black;
+      white-space: nowrap;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .empresa-data-box {
+      text-align: right;
+      margin-top: 5px;
+    }
+
+    /* ESTIMATEITEM TABLE */
+
+    .estimateitem-price-cell,
+    .estimateitem-total-cell,
+    .estimateitem-discount-cell,
+    .estimateitem-quantity-cell {
+      width: 10%;
+    }
+
+    .estimateitem-name-cell {
+      width: 60%;
+    }
+  </style>
+</head>
+<header class="intro-header">
+  <div class="intro-header-column">
+    <img class="mesquita-logo" src="https://svgshare.com/i/5XN.svg">
+    <div class="address-box">
+      <p>Alsina 2501 - (1090) Capital Federal</p>
+      <p>Tel: 4954-2224 / 4115-0800</p>
+      <p>Tel: 4951-9812 - Servicio tecnico 24hs</p>
+      <p>IVA: Responsable Inscripto</p>
+    </div>
+  </div>
+  <div class="intro-header-column">
+    <div class="letter-box">
+      <p class="letter"><br><br>"X"<br><br></p>
+    </div>
+  </div>
+  <div class="intro-header-column">
+    <div class="text-align-right">
+      <div class="presupuesto-data-box">
+        <p> COTIZACI&Oacute;N N&deg;: {{id}}</p>
+        <p>Fecha: {{createdAt}}</p>
+      </div>
+    </div>
+    <div class="empresa-data-box">
+      <p>CUIT N&deg;: 3070987582-1</p>
+      <p>Ing. Brutos: 901-4224746-5</p>
+      <p>Inicio Act.: 01/11/2006</p>
+      <p>Mail: ventas@mesquita.com.ar</p>
+    </div>
+  </div>
+</header>
+<table class="account-table">
+  <tr class="graybox-table-header">
+    <th>Cliente:</th>
+    <th>Cuenta N&deg;:</th>
+    <th>Vendedor:</th>
+  </tr>
+  <tr>
+    <td>{{client.name}}</td>
+    <td class="text-align-center">{{client.id}}</td>
+    <td class="text-align-right">{{user.name}}</td>
+  </tr>
+  <tr class="graybox-table-header">
+    <th>Categor&iacute;a fiscal:</th>
+    <th>CUIT / CUIL N&deg;:</th>
+    <th>Valido hasta:</th>
+  </tr>
+  <tr>
+    <td>{{client.taxcategory}}</td>
+    <td class="text-align-center">{{client.cuil | default("NO ESPECIFICA", true)}}</td>
+    <td class="text-align-right">{{validUntil}}</td>
+  </tr>
+
+</table>
+
+<table class="account-table">
+  <tr class="graybox-table-header">
+    <th class="estimateitem-quantity-cell">Cantidad</th>
+    <th class="estimateitem-name-cell">Descripcion</th>
+    <th class="estimateitem-discount-cell">Descuento</th>
+    <th class="estimateitem-price-cell">Precio</th>
+    <th class="estimateitem-total-cell">Importe</th>
+  </tr>
+</table>

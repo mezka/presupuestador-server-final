@@ -45,10 +45,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    discount: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
     taxcategory: {
       type: DataTypes.STRING,
       allowNull: false,
