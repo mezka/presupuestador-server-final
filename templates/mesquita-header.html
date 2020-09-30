@@ -6,23 +6,9 @@
     }
 
     .intro-header,
-    .account-table {
+    .account-table,
+    .estimate-table {
       width: 100%;
-    }
-
-    .graybox-table-header {
-      margin: 3px 0 0 0;
-      background-color: #d7d7d7;
-      border: 1px solid black;
-    }
-
-
-    .text-align-right {
-      text-align: right;
-    }
-
-    .text-align-center {
-      text-align: center;
     }
 
     /* INTRO-HEADER */
@@ -61,7 +47,6 @@
       font-size: 30px;
     }
 
-
     .presupuesto-data-box {
       display: inline-block;
       border: 3px solid black;
@@ -75,7 +60,26 @@
       margin-top: 5px;
     }
 
-    /* ESTIMATEITEM TABLE */
+    /* ACCOUNT TABLE */
+
+    .graybox-table-header {
+      background-color: #d7d7d7;
+      border: 1px solid black;
+    }
+
+    .account-table {
+      table-layout : fixed;
+    }
+
+    .text-align-center {
+      text-align: center;
+    }
+
+    .text-align-right {
+      text-align: right;
+    }
+
+    /* ESTIMATE TABLE */
 
     .estimateitem-price-cell,
     .estimateitem-total-cell,
@@ -121,29 +125,28 @@
 </header>
 <table class="account-table">
   <tr class="graybox-table-header">
-    <th>Cliente:</th>
-    <th>Cuenta N&deg;:</th>
     <th>Vendedor:</th>
+    <th>Cliente:</th>
+    <th>Telefono:</th>
   </tr>
   <tr>
-    <td>{{client.name}}</td>
-    <td class="text-align-center">{{client.id}}</td>
-    <td class="text-align-right">{{user.name}}</td>
+    <td>{{user.name}}</td>
+    <td class="text-align-center">{{client.name}}</td>
+    <td class="text-align-right">{{client.phonenumber0}}</td>
   </tr>
   <tr class="graybox-table-header">
-    <th>Categor&iacute;a fiscal:</th>
+    <th>Email:</th>
     <th>CUIT / CUIL N&deg;:</th>
     <th>Valido hasta:</th>
   </tr>
   <tr>
-    <td>{{client.taxcategory}}</td>
+    <td>{{client.email0}}</td>
     <td class="text-align-center">{{client.cuil | default("NO ESPECIFICA", true)}}</td>
     <td class="text-align-right">{{validUntil}}</td>
   </tr>
-
 </table>
 
-<table class="account-table">
+<table class="estimate-table">
   <tr class="graybox-table-header">
     <th class="estimateitem-quantity-cell">Cantidad</th>
     <th class="estimateitem-name-cell">Descripcion</th>

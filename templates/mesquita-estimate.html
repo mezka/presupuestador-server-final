@@ -11,16 +11,15 @@
     body,
     p {
       margin: 0;
+      min-height: 100%;
     }
 
     body,
-    .estimateitem-table,
-    .estimatetotals-table {
+    .estimateitem-table {
       width: 100%;
     }
 
     .graybox-table-header {
-      margin: 3px 0 0 0;
       background-color: #d7d7d7;
       border: 1px solid black;
     }
@@ -46,7 +45,6 @@
 </head>
 <body>
   <table class="estimateitem-table">
-    <tbody>
       {% for estimateitem in estimateitems %}
       <tr>
         <td class="presupuesto-cell estimateitem-quantity-cell">{{estimateitem.quantity}}</td>
@@ -56,28 +54,6 @@
         <td class="presupuesto-cell estimateitem-total-cell">${{estimateitem.totalitemprice | round(2)}}</td>
       </tr>
       {% endfor %}
-    </tbody>
-  </table>
-  <div>
-    <p>Son pesos: {{totalaswords}}</p>
-  </div>
-  <table class="estimatetotals-table">
-    <tr class="graybox-table-header">
-      <th>Subtotal</th>
-      <th>Descuento</th>
-      <th>Tasa</th>
-      <th>Neto Gravado</th>
-      <th>IVA</th>
-      <th>TOTAL</th>
-    </tr>
-    <tr>
-      <td class="estimatetotals-cell">${{subtotal}}</td>
-      <td class="estimatetotals-cell">{{totaldiscount}}%</td>
-      <td class="estimatetotals-cell">{{client.taxpercent}}%</td>
-      <td class="estimatetotals-cell">${{subtotal}}</td>
-      <td class="estimatetotals-cell">${{totaltax}}</td>
-      <td class="estimatetotals-cell">${{total}}</td>
-    </tr>
   </table>
 </body>
 </html>

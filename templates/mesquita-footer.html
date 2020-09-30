@@ -1,16 +1,128 @@
 <!DOCTYPE html>
-<footer>
-  <div>
-    <p>CBU: 1910249655024900127746</p>
-    <p>N&deg; de Cta. Cte.: 12345, Sucursal N&deg;249 del Banco Credicoop, Plaza Miserere</p>
-  </div>
-  <div>
-    <p>Forma de pago: 50% ACOPIO (CONTADO: Efectivo, transferencia, cheque al d&iacute;a acreditado) - SALDO.
-    </p>
-    <p>Nuestras puertas cortafuego se encuentran homologadas por el INTI. Identificadas cada una con su
-      respectivo n&uacute;mero de serie.</p>
-    <p>Para entregar la mercader&iacute;a la misma deber&aacute; encontrarse acreditada. Las puertas no incluyen
-      instalaci&oacute;n. Validez de la oferta: 10 d&iacute;as.</p>
-    <p>Tiempo de entrega: 30 d&iacute;as a part&iacute;r de acreditaci&oacute;n del acopio</p>
-  </div>
-</footer>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+      }
+  
+      p {
+        margin: 5px 0;
+      }
+  
+      body,
+      .estimate-totals-table,
+      #estimate-totals,
+      footer:after {
+        width: 100%;
+      }
+  
+      #estimate-totals-table {
+        visibility: hidden;
+      }
+  
+      .graybox-table-header {
+        background-color: #d7d7d7;
+        border: 1px solid black;
+      }
+  
+      footer {
+        text-align: justify;
+        border-top: 2px solid black;
+      }
+  
+      .estimatetotals-cell {
+        border: 2px solid black;
+        text-align: right;
+      }
+  
+      footer:after {
+        content: '';
+        display: inline-block;
+      }
+  
+      .footer-content {
+        vertical-align: top;
+        display: inline-block;
+        width: 45%;
+      }
+    </style>
+    <script>
+      function getJavascriptObjectFromQueryString(queryString) {
+        var result = {};
+        queryString.substring(1).split("&").forEach(function (part) {
+          if (!part) return;
+          part = part.split("+").join(" ");
+          var eq = part.indexOf("=");
+          var key = eq > -1 ? part.substr(0, eq) : part;
+          var val = eq > -1 ? decodeURIComponent(part.substr(eq + 1)) : "";
+          var from = key.indexOf("[");
+          if (from == -1) result[decodeURIComponent(key)] = val;
+          else {
+            var to = key.indexOf("]", from);
+            var index = decodeURIComponent(key.substring(from + 1, to));
+            key = decodeURIComponent(key.substring(0, from));
+            if (!result[key]) result[key] = [];
+            if (!index) result[key].push(val);
+            else result[key][index] = val;
+          }
+        });
+        return result;
+      }
+      function removeEstimateTotalsFromNonLastPages() {
+  
+        var page = document.getElementById('page');
+        var sitepages = document.getElementById('sitepages');
+        var estimateTotalsTable = document.getElementById('estimate-totals-table');
+
+        var queryString = getJavascriptObjectFromQueryString(document.location.search);
+        
+
+        page.innerHTML = queryString.page;
+        sitepages.innerHTML = queryString.sitepages;
+
+        if(queryString.page === queryString.sitepages){
+          estimateTotalsTable.style.visibility = 'visible';
+        } else {
+          estimateTotalsTable.parentNode.insertBefore(estimateTotalsTable, page.parentNode);
+        }
+      }
+    </script>
+  </head>
+  
+  <body onload="removeEstimateTotalsFromNonLastPages()">
+    <section>
+      <p>Pagina <span id="page"></span> de <span id="sitepages"></span></p>
+      <table id="estimate-totals-table" class="estimate-totals-table">
+        <tr class="graybox-table-header">
+          <th>Subtotal</th>
+          <th>Descuento</th>
+          <th>Tasa</th>
+          <th>Neto Gravado</th>
+          <th>IVA</th>
+          <th>TOTAL</th>
+        </tr>
+        <tr>
+          <td class="estimatetotals-cell">${{subtotal}}</td>
+          <td class="estimatetotals-cell">{{totaldiscount}}%</td>
+          <td class="estimatetotals-cell">{{client.taxpercent}}%</td>
+          <td class="estimatetotals-cell">${{subtotal}}</td>
+          <td class="estimatetotals-cell">${{totaltax}}</td>
+          <td class="estimatetotals-cell">${{total}}</td>
+        </tr>
+      </table>
+    </section>
+    <footer>
+      <div class="footer-content">
+        <p>Titular: EQUIPAMIENTOS DE SEGURIDAD S.A.</p>
+        <p>CBU: 1910249655024900127746</p>
+        <p>N&deg; de Cta. Cte.: XXXXX, Sucursal N&deg;249 del Banco Credicoop, Plaza Miserere</p>
+      </div>
+      <div class="footer-content">
+        <p>Forma de pago: 50% ACOPIO (efectivo, transferencia, o cheque al d&iacute;a acreditado), y 50% SALDO.</p>
+        <p>Para entregar la mercader&iacute;a las mismas deber&aacute;n encontrarse acreditadas.</p>
+        <p>Tiempo de entrega: 30 d&iacute;as a part&iacute;r de acreditaci&oacute;n del acopio.</p>
+      </div>
+    </footer>
+  </body>
+</html>

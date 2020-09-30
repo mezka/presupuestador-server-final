@@ -57,7 +57,7 @@ function transformResponseDataToPDF(req, res) {
                               res.type('json');
                               res.end({ error });
                             } else {
-                              wkhtmltopdf(estimateContent, { pageSize: 'A4', headerHtml: headerFileObject.path, footerHtml: footerFileObject.path }, function (error, stream) {
+                              wkhtmltopdf(estimateContent, { pageSize: 'A4', headerHtml: headerFileObject.path, footerHtml: footerFileObject.path, marginTop: 70, marginBottom: 50 }, function (error, stream) {
                                 if (error) {
                                   res.type('json');
                                   res.end({ error });
