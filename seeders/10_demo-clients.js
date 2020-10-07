@@ -10,7 +10,17 @@ module.exports = {
       cuil: '20363971157',
       createdAt: new Date(),
       updatedAt: new Date()
-    }]);
+    },
+    {
+      name: 'Emiliano',
+      phonenumber0: '213412341',
+      address0: 'asda',
+      email0: 'asdas@hotmail.com',
+      cuil: '12344563456',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ]);
   },
 
   down: async (queryInterface, Sequelize) => {

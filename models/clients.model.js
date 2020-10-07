@@ -47,8 +47,7 @@ module.exports = function (app) {
     },
     taxcategory: {
       type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'CONSUMIDOR FINAL'
+      allowNull: true,
     },
     taxpercent: {
       type: DataTypes.INTEGER,
@@ -57,7 +56,7 @@ module.exports = function (app) {
     },
     cuil: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   }, {
     hooks: {
