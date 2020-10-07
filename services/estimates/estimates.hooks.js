@@ -8,7 +8,7 @@ module.exports = {
     find: [setEagerLoadingForEstimateService()],
     get: [removeParameterFromQuery('export'), setEagerLoadingForEstimateService()],
     create: [authenticate('jwt')],
-    update: [],
+    update: [authenticate('jwt')],
     patch: [],
     remove: []
   },
