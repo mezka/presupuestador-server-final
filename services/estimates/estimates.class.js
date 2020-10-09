@@ -32,7 +32,7 @@ exports.Estimates = class Estimates extends Service {
     const { estimateitems: estimateitemsArr, ...estimateData } = data;
 
     try{
-      var estimateItemsToDelete = (await this.app.service('estimateitems').find({ query: {estimateid: id}})).data;
+      var estimateItemsToDelete = await this.app.service('estimateitems').find({ query: {estimateid: id}});
     } catch (error){
       return Promise.reject(error);
     }
