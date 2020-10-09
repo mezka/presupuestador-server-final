@@ -20,7 +20,7 @@ module.exports = {
               }
             },
             attributes: {
-              exclude: ['createdAt', 'updatedAt', 'estimateid', 'productid']
+              exclude: ['createdAt', 'updatedAt', 'estimateid']
             }
           },
           {
