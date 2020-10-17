@@ -7,23 +7,23 @@ module.exports = {
         estimateid: 1,
         productid: 1,
         quantity: 1,
-        unitprice: 200000,
+        unitprice: 21700,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         estimateid: 1,
-        productid: 2,
+        productid: 57,
         quantity: 1,
-        unitprice: 400000,
+        unitprice: 5600,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         estimateid: 1,
-        productid: 2,
+        productid: 66,
         quantity: 1,
-        unitprice: 400000,
+        unitprice: 3080,
         createdAt: new Date(),
         updatedAt: new Date()
       },
