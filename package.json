@@ -55,7 +55,7 @@
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "serve-favicon": "^2.5.0",
-    "temp": "^0.9.1",
+    "tmp-promise": "^3.0.2",
     "winston": "^3.3.3",
     "wkhtmltopdf": "^0.3.4"
   },

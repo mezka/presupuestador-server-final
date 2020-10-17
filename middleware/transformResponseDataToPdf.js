@@ -1,90 +1,83 @@
 const nunjucks = require('nunjucks');
 const wkhtmltopdf = require('wkhtmltopdf');
-const temp = require('temp');
+const tmp = require('tmp-promise');
 const fs = require('fs');
-const os = require('os');
 
 nunjucks.configure('templates', {
   autoescape: true,
 });
 
-function transformResponseDataToPDF(req, res) {
-  res.type('application/pdf');
-  nunjucks.render('mesquita-footer.html', res.data, function(error, footerContent){
-    if (error) {
-      res.type('json');
-      res.end({ error });
-    } else {
-      temp.open({suffix: '.html'}, function (error, footerFileObject) {
-        if (error) {
-          res.type('json');
-          res.end({ error });
-        } else {
-          fs.write(footerFileObject.fd, footerContent, (error) => {
-            if(error){
-              res.type('json');
-              res.end({ error });
-            }
-          });
-          fs.close(footerFileObject.fd, function (error) {
-            if (error) {
-              res.type('json');
-              res.end({ error });
-            } else {
-              nunjucks.render('mesquita-header.html', res.data, function (error, headerContent) {
-                if (error) {
-                  res.type('json');
-                  res.end({ error });
-                } else {
-                  temp.open({suffix: '.html'}, function (error, headerFileObject) {
-                    if (error) {
-                      res.type('json');
-                      res.end({ error });
-                    } else {
-                      fs.write(headerFileObject.fd, headerContent, (error) => {
-                        if(error){
-                          res.type('json');
-                          res.end({ error });
-                        }
-                      });
-                      fs.close(headerFileObject.fd, function (error) {
-                        if (error) {
-                          res.type('json');
-                          res.end({ error });
-                        } else {
-                          nunjucks.render('mesquita-estimate.html', res.data, function (error, estimateContent) {
-                            if (error) {
-                              res.type('json');
-                              res.end({ error });
-                            } else {
-                              wkhtmltopdf(estimateContent, { pageSize: 'A4', headerHtml: headerFileObject.path, footerHtml: footerFileObject.path, marginTop: 70, marginBottom: 50 }, function (error, stream) {
-                                if (error) {
-                                  res.type('json');
-                                  res.end({ error });
-                                } else {
-                                  stream.on('data', function (data) {
-                                    res.write(data);
-                                  });
-                                  stream.on('end', function () {
-                                    res.status(200).end();
-                                  });
-                                }
-                              });
-                            }
-                          });
-                        }
-                      });
-                    }
-                  });
-                }
-              });
-            }
-          });
+async function transformResponseDataToPdf(req, res) {
+
+  try {
+    var headerTempfile = await tmp.file({ postfix: '.html' });
+    var footerTempfile = await tmp.file({ postfix: '.html' });
+  } catch (error) {
+    return res.send({ error });
+  }
+
+  try {
+    nunjucks.render('mesquita-header.html', res.data, async function (error, headerContent) {
+      if (!error) {
+        try {
+          await fs.promises.writeFile(headerTempfile.path, headerContent);
+        } catch (error) {
+          throw error;
         }
+      } else {
+        throw error;
+      }
+    });
+  } catch (error) {
+    headerTempfile.cleanup();
+    return res.status(500).send({message: error.message});
+  }
+
+  try {
+    nunjucks.render('mesquita-footer.html', res.data, async function (error, footerContent) {
+      if (!error) {
+        try {
+          await fs.promises.writeFile(footerTempfile.path, footerContent);
+        } catch (error) {
+          throw error;
+        }
+      } else {
+        throw error;
+      }
+    });
+  } catch (error) {
+    footerTempfile.cleanup();
+    return res.status(500).send({message: error.message});
+  }
+
+
+  try{
+    var estimateContent = nunjucks.render('mesquita-estimate.html', res.data);
+  } catch (error){
+    headerTempfile.cleanup();
+    footerTempfile.cleanup();
+    return res.status(500).send({message: error.message});
+  }
+  
+  const wkHtmlToPdfOptions = { pageSize: 'A4', headerHtml: headerTempfile.path, footerHtml: footerTempfile.path, marginTop: 70, marginBottom: 50 };
+
+  wkhtmltopdf(estimateContent, wkHtmlToPdfOptions, async function (error, stream) {
+    res.type('application/pdf');
+    if (!error) {
+      stream.on('data', function (data) {
+        res.write(data);
       });
+      stream.on('end', function () {
+        headerTempfile.cleanup();
+        footerTempfile.cleanup();
+        return res.status(200).end();
+      });
+    } else {
+      headerTempfile.cleanup();
+      footerTempfile.cleanup();
+      return res.status(500).send({message: error.message});
     }
   });
-
-  
 }
-module.exports = transformResponseDataToPDF;
+
+module.exports = transformResponseDataToPdf;
