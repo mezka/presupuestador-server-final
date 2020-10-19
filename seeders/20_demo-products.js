@@ -4,7 +4,13 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('products', [
       {
-        modelname: 'PUERTA RF30 0700/0800X2000MM',
+        modelname: 'PUERTA RF30 0700X2000MM',
+        price: 21700,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        modelname: 'PUERTA RF30 0800X2000MM',
         price: 21700,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -88,7 +94,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        modelname: 'PUERTA RF60 0700/0800X2000MM',
+        modelname: 'PUERTA RF60 0700X2000MM',
+        price: 24900,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        modelname: 'PUERTA RF60 0800X2000MM',
         price: 24900,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -172,7 +184,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        modelname: 'PUERTA RF90 0700/0800X2000MM',
+        modelname: 'PUERTA RF90 0700X2000MM',
+        price: 41600,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        modelname: 'PUERTA RF90 0800X2000MM',
         price: 41600,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -256,7 +274,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        modelname: 'PUERTA RF120 0700/0800X2000MM',
+        modelname: 'PUERTA RF120 0700X2000MM',
+        price: 43000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        modelname: 'PUERTA RF120 0800X2000MM',
         price: 43000,
         createdAt: new Date(),
         updatedAt: new Date()
