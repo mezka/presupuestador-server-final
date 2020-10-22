@@ -25,6 +25,7 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   products.associate = function (models) {
+    products.belongsToMany(models.categories, { through: models.productcategories, foreignKey: 'productid', otherKey: 'categoryid' });
   };
 
   return products;
