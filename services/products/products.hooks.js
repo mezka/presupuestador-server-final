@@ -1,9 +1,9 @@
-const { setEagerLoadingForAllFields } = require('../../helpers/hooks');
+const { setEagerLoadingForProductService } = require('./helpers/hooks');
 
 module.exports = {
   before: {
     all: [],
-    find: [setEagerLoadingForAllFields()],
+    find: [setEagerLoadingForProductService()],
     get: [],
     create: [],
     update: [],
