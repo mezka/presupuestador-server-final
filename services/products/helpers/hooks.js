@@ -1,3 +1,5 @@
+
+
 module.exports = {
   setEagerLoadingForProductService(){
     return (context) => {
@@ -21,5 +23,14 @@ module.exports = {
       };
       return context;
     };
+  },
+
+  mapCategoriesIntoArrayOfCategoryIds(){
+    return (context) => {
+
+      context.result = context.result.map(product => ({...product, categories: product.categories.map((category) => (category.id))}))
+      
+      return context;
+    }
   }
 };

@@ -1,4 +1,5 @@
-const { setEagerLoadingForProductService } = require('./helpers/hooks');
+const { setEagerLoadingForProductService, mapCategoriesIntoArrayOfCategoryIds } = require('./helpers/hooks');
+const dehydrate = require('feathers-sequelize/hooks/dehydrate');
 
 module.exports = {
   before: {
@@ -13,7 +14,7 @@ module.exports = {
 
   after: {
     all: [],
-    find: [],
+    find: [dehydrate(), mapCategoriesIntoArrayOfCategoryIds()],
     get: [],
     create: [],
     update: [],
