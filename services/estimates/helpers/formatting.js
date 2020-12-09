@@ -154,9 +154,9 @@ module.exports = {
 
     function createNewEstimateItemWithTemplateProperties(estimateitem) {
 
-      const unitpricewithdiscount = (100 - estimateitem.discount) * estimateitem.unitprice;
+      const unitpricewithdiscount = (100 - estimateitem.discount) / 100 * estimateitem.unitprice;
       const totalitemprice = estimateitem.quantity * unitpricewithdiscount;
-    
+
       return { ...estimateitem, unitpricewithdiscount, totalitemprice };
     };
 
