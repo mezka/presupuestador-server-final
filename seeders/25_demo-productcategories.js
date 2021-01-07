@@ -269,7 +269,7 @@ module.exports = {
       },
       {
         productid: 45,
-        categoryid: 8,
+        categoryid: 7,
         createdAt: new Date(),
         updatedAt: new Date()
       },
