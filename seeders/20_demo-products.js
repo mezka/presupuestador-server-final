@@ -724,6 +724,76 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        id: 104,
+        modelname: 'MODULO TABIQUE BLINDADO MOSTRADOR 0900MM',
+        price: 66500,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 105,
+        modelname: 'MODULO TABIQUE BLINDADO MOSTRADOR 1000MM',
+        price: 66500,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 106,
+        modelname: 'MODULO TABIQUE BLINDADO CIEGO 550MM',
+        price: 1700,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 107,
+        modelname: 'MODULO TABIQUE BLINDADO CIEGO DE AJUSTE 200MM',
+        price: 0,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 108,
+        modelname: 'MODULO TABIQUE BLINDADO CIEGO DE AJUSTE 300MM',
+        price: 0,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 109,
+        modelname: 'MODULO TABIQUE BLINDADO VIDRIADO 0900MM',
+        price: 44000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 110,
+        modelname: 'MODULO TABIQUE BLINDADO VIDRIADO 1000MM',
+        price: 44000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 111,
+        modelname: 'MENSULA BAJO MOSTRADOR',
+        price: 2700,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 112,
+        modelname: 'CAJÓN DE TRANSFERENCIA',
+        price: 25000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 113,
+        modelname: 'CAJA PASA VALORES',
+        price: 15000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
     ]);
   },
   down: (queryInterface, Sequelize) => {

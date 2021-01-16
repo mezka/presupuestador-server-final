@@ -45,6 +45,12 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        id: 10,
+        name: 'AGENCIA',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
     ]);
   },
 
