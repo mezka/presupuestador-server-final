@@ -4,7 +4,7 @@ dotenv.config();
 
 module.exports = {
     host: "localhost",
-    port: process.env.PORT,
+    port: process.env.PRESUPUESTADOR_SERVER_PORT,
     public: "../public/",
     paginate: {
         default: 10,
@@ -32,5 +32,5 @@ module.exports = {
             passwordField: "password"
         }
     },
-    postgres: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@localhost:5432/${process.env.DB_NAME}`
+    postgres: `postgres://${process.env.PRESUPUESTADOR_SERVER_DB_USER}:${process.env.PRESUPUESTADOR_SERVER_DB_PASS}@localhost:5432/${process.env.PRESUPUESTADOR_SERVER_DB_NAME}`
 }

@@ -15,7 +15,7 @@ First, we need to create the PostgreSQL database to be used by the application, 
 sudo -u postgres psql
 ```
 
-Now, we need to execute the following statements (replacing mock database_user, database_password, and database_name with proper values):
+Now, we need to execute the following statements (replacing mock database_user, database_password, and database_name with actual values):
 
 ```sql
 CREATE USER database_user WITH PASSWORD 'database_password';
@@ -28,18 +28,19 @@ GRANT ALL PRIVILEGES ON DATABASE database_name to database_user;
 To properly configure the application, you must execute `index.js` with the following environment variables set:
 
 ```bash
-DB_USER
-DB_PASS
-DB_NAME
+PRESUPUESTADOR_SERVER_DB_USER
+PRESUPUESTADOR_SERVER_DB_PASS
+PRESUPUESTADOR_SERVER_DB_NAME
+PRESUPUESTADOR_SERVER_PORT
 ```
 
 To achieve this you can create a `.env` file you can place on the application's root path, it should be defined as follows:
 
 ```bash
-DB_USER=database_user
-DB_PASS=database_password
-DB_NAME=database_name
-PORT=application_port
+PRESUPUESTADOR_SERVER_DB_USER=database_user
+PRESUPUESTADOR_SERVER_DB_PASS=database_password
+PRESUPUESTADOR_SERVER_DB_NAME=database_name
+PRESUPUESTADOR_SERVER_PORT=application_port
 ```
 
 ## Seeding the application
